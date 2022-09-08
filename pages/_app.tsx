@@ -13,7 +13,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
-      <ToastContainer theme='dark' toastStyle={{ backgroundColor: "#2b2828" }} />
+      <ToastContainer 
+        theme='dark' 
+        newestOnTop
+        progressStyle={{backgroundColor: 'white'}}
+        toastStyle={{ 
+          backgroundColor: "#2b2828",
+          fontFamily: 'Amatic SC, sans-serif',
+          fontSize: '200%'
+          }}
+      />
     </div>
   )
 }

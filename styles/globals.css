@@ -6,8 +6,3 @@
 input[type=range]::-webkit-slider-thumb {
 background: rgb(157,163,174)
 }
-
-:root{
-  --toastify-color-success: #CCCCCC;
-  --toastify-icon-color-success: var(--toastify-color-success);
-}
