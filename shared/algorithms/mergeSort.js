@@ -1,6 +1,7 @@
 import { finishedAnimation, sleep } from "./commonFunctions"
 
-const mergeSort = async (array, setSorter, animationSpeed) => {
+const mergeSort = async ({ array, setSorter, animationSpeed, algorithm, toast }) => {
+  var t0 = performance.now()
   let currentArr = array
   const merge = async (arr, low, mid, high) => {
     let i = low
@@ -18,34 +19,34 @@ const mergeSort = async (array, setSorter, animationSpeed) => {
         j++
         k++
       }
-      setSorter({ array: [...array, tempArr]})
+      setSorter({ array: [...array, null]})
   
       let bar1 = document.getElementById(i).style
-      let bar2 = document.getElementById(j).style
+      let bar2 = document.getElementById(j)?.style
       bar1.backgroundColor = 'white'
-      bar2.backgroundColor = 'white'
+      if (bar2) bar2.backgroundColor = 'white'
 
       await sleep(animationSpeed)
 
       bar1.backgroundColor = '#FF6247'
-      bar2.backgroundColor = '#FF6247'
+      if (bar2) bar2.backgroundColor = '#FF6247'
   
     }
   
     while (i <= mid) {
       tempArr[k] = arr[i]
   
-      setSorter({ array: [...array, tempArr]})
+      setSorter({ array: [...array, null]})
   
       let bar1 = document.getElementById(i).style
-      let bar2 = document.getElementById(j).style
+      let bar2 = document.getElementById(j)?.style
       bar1.backgroundColor = '#DC143C'
-      bar2.backgroundColor = 'black'
+      if (bar2) bar2.backgroundColor = 'black'
   
       await sleep(animationSpeed)
   
-      bar1.backgroundColor = '#FF7F50'
-      bar2.backgroundColor = '#FF7F50'
+      bar1.backgroundColor = '#FF6247'
+      if (bar2) bar2.backgroundColor = '#FF6247'
   
   
       i++
@@ -55,17 +56,17 @@ const mergeSort = async (array, setSorter, animationSpeed) => {
     while (j <= high) {
       tempArr[k] = arr[j]
   
-      setSorter({ array: [...array, tempArr]})
+      setSorter({ array: [...array, null]})
   
       let bar1 = document.getElementById(i).style
-      let bar2 = document.getElementById(j).style
-      bar1.backgroundColor = '#DC143C'
-      bar2.backgroundColor = 'black'
+      let bar2 = document.getElementById(j)?.style
+      bar1.backgroundColor = 'white'
+      if (bar2) bar2.backgroundColor = 'white'
   
       await sleep(animationSpeed)
   
       bar1.backgroundColor = '#FF7F50'
-      bar2.backgroundColor = '#FF7F50'
+      if (bar2) bar2.backgroundColor = '#FF7F50'
   
   
       j++
@@ -74,8 +75,9 @@ const mergeSort = async (array, setSorter, animationSpeed) => {
   
     for (let i = low; i <= high; i++) {
       arr[i] = tempArr[i - low]
-      setSorter({ array: [...array, arr]})
+      setSorter({ array: arr})
     }
+
   }
 
   const sort = async (arr, low, high) => {
@@ -88,7 +90,13 @@ const mergeSort = async (array, setSorter, animationSpeed) => {
   }
 
   await sort(currentArr, 0, currentArr.length - 1)
-  finishedAnimation(array, animationSpeed)
+
+  
+  var t1 = performance.now();
+  const ms = t1 - t0
+  const seconds = ((ms/1000) % 60).toFixed(2)
+  finishedAnimation(algorithm, seconds, toast)
+  setSorter({sorting: false})
   
 }
 

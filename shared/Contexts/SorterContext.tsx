@@ -14,6 +14,7 @@ export const SorterProvider = (props: any) => {
     array: [],
     arraySize: 70,
     algorithm: 'Bubble',
+    sorting: false,
     animationSpeed : 40,
     randomizeArray: (arraySize: number) => {
       const randomVals = (min: number, max: number) => {
@@ -29,7 +30,7 @@ export const SorterProvider = (props: any) => {
       let newArray: any  = []
       
       for (let i = 0; i < arraySize; i++) {
-        newArray.push(randomVals(20, 450))
+        newArray.push(randomVals(35, 450))
       }
   
       setSorter({ array: newArray })

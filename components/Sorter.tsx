@@ -1,5 +1,5 @@
 import { useEffect, useContext  } from 'react'
-import { SorterContext } from '../shared/SorterContext'
+import { SorterContext } from '../shared/Contexts/SorterContext'
 
 const Sorter = () => {
   const [{ array, randomizeArray, algorithm, arraySize }, setSorter]: any = useContext(SorterContext)
@@ -30,17 +30,19 @@ const Sorter = () => {
         Heap 
         </button>
       </div>
-      <div className='flex gap-2 w-9/12 justify-center items-end'> 
+      <div className='flex gap-1 w-9/12 rotate-180'> 
         {array &&
           array.map((value: number, index: number) => {
-            return (
-              <div
-                className='bg-orange-500 w-20 rounded-t-md'
-                id={`${index}`}
-                key={index}
-                style={{ height: value }}
-              ></div>
-            )
+            if(value) {
+              return (
+                <div
+                  className='bg-orange-500 w-[5rem] rounded-t-sm inline-block'
+                  id={`${index}`}
+                  key={index}
+                  style={{ height: value }}
+                ></div>
+              )
+            }
           })}
       </div>
     </div>

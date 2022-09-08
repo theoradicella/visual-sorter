@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import Sorter from '../components/Sorter';
 import TopBar from '../components/TopBar';
-import { SorterProvider } from '../shared/SorterContext';
+import { toast } from 'react-toastify';
+import { SorterProvider } from '../shared/Contexts/SorterContext';
 
 const Home: NextPage = () => {
   return (

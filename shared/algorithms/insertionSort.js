@@ -1,6 +1,7 @@
 import { sleep, finishedAnimation } from "./commonFunctions"
 
- const insertionSort = async (array, setSorter, animationSpeed) => {
+ const insertionSort = async ({ array, setSorter, animationSpeed, algorithm, toast }) => {
+    var t0 = performance.now()
     let currentArr = array
     let sorted = false
     while (!sorted) {
@@ -23,14 +24,21 @@ import { sleep, finishedAnimation } from "./commonFunctions"
           bar1.backgroundColor = '#FF6247'
           bar2.backgroundColor = '#FF6247'
 
-          j--
           sorted = false
+          j--
         }
         currentArr[j + 1] = current
-        setSorter({ array: [...array, currentArr]})
+        setSorter({ array: currentArr})
       }
-      if (sorted) finishedAnimation(array, animationSpeed)
+
+      if (sorted) {
+        var t1 = performance.now();
+        const ms = t1 - t0
+        const seconds = ((ms/1000) % 60).toFixed(2)
+        finishedAnimation(algorithm, seconds, toast)
+      } 
     }
+    setSorter({sorting: false})
   }
 
   export default insertionSort

@@ -1,6 +1,7 @@
 import { sleep, finishedAnimation } from "./commonFunctions"
 
-const heapSort = async (array, setSorter, animationSpeed) => {
+const heapSort = async ({ array, setSorter, animationSpeed, algorithm, toast }) => {
+  var t0 = performance.now()
   let arr = array
   let length = arr.length
   let index = Math.floor(length / 2 - 1)
@@ -46,7 +47,7 @@ const heapSort = async (array, setSorter, animationSpeed) => {
     await heapify(arr, length, index)
     index--
 
-    setSorter({ array: [...array, arr]})
+    setSorter({ array: arr})
 
     if (index >= 0) {
       let bar1 = document.getElementById(index).style
@@ -73,7 +74,7 @@ const heapSort = async (array, setSorter, animationSpeed) => {
     await heapify(arr, lastChild, 0)
     lastChild--
 
-    setSorter({ array: [...array, arr]})
+    setSorter({ array: arr })
 
     if (index >= 0) {
       let bar1 = document.getElementById(lastChild).style
@@ -88,7 +89,12 @@ const heapSort = async (array, setSorter, animationSpeed) => {
     }
   }
 
-  finishedAnimation(array, animationSpeed)
+  var t1 = performance.now();
+  const ms = t1 - t0
+  const seconds = ((ms/1000) % 60).toFixed(2)
+  finishedAnimation(algorithm, seconds, toast)
+  setSorter({sorting: false})
+
 }
 
 export default heapSort
