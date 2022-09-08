@@ -12,7 +12,7 @@ export const SorterProvider = (props: any) => {
 
   const [sorter, setSorter] = useReducer(sorterReducer, {
     array: [],
-    arraySize: 60,
+    arraySize: 70,
     algorithm: 'Bubble',
     animationSpeed : 40,
     randomizeArray: (arraySize: number) => {

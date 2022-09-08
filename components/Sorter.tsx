@@ -9,7 +9,7 @@ const Sorter = () => {
   }, [])
 
   return (
-    <div className='flex w-full h-full items-end pb-24 p-12 gap-32'>
+    <div className='flex w-full h-full items-end pb-16 p-12 gap-32 mt-11'>
       <div className="flex flex-col rounded-md shadow-sm" role="group">
         <button onClick={() => setSorter({ algorithm: 'Bubble' })} className={` ${algorithm == 'Bubble' && 'bg-slate-500'} p-4 text-5xl font-bold text-white rounded-t-lg border border-white hover:outline`}>
           Bubble 

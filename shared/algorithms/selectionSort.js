@@ -17,8 +17,8 @@ const selectionSort = async (array, setSorter, animationSpeed) => {
 
             let bar1 = document.getElementById(i).style
             let bar2 = document.getElementById(j).style
-            bar1.backgroundColor = '#64748B'
-            bar2.backgroundColor = '#749ea1'
+            bar1.backgroundColor = 'white'
+            bar2.backgroundColor = 'white'
       
             await sleep(animationSpeed)
       

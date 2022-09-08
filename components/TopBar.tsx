@@ -44,19 +44,15 @@ const TopBar = () => {
 
 
   function speedName(speed: number) {
-    // if(speed < 25) return 'Fast'
-    // if(speed > 80) return 'Slow'
-    // else return 'Medium'
-
     return 100 - speed
   }
 
   return (
-    <div className='fixed flex w-full gap-10 items-center z-50 bg-black py-8 px-12 top-0'>
+    <div className='fixed flex w-full gap-10 items-center z-50 bg-black py-6 px-12 top-0'>
       <span className="text-white text-6xl border-2 p-2 mr-10">Visual Sorter</span>
       <div className="w-1/4 flex flex-col items-center">
         <label htmlFor="speed-range" className="text-4xl mb-1 text-white">Speed x{speedName(animationSpeed)}</label>
-        <input id="speed-range" min={5} type="range" value={animationSpeed} onChange={(e) => setSorter({ animationSpeed: e.target.value })} className="rotate-180 w-full text-yellow-500 bg-gray-800 rounded-md cursor-pointer appearance-none" />
+        <input id="speed-range" min={5} type="range" value={animationSpeed} onChange={(e) => setSorter({ animationSpeed: e.target.value})} className="rotate-180 w-full text-yellow-500 bg-gray-800 rounded-md cursor-pointer appearance-none" />
       </div>
       <div className="w-1/4 flex flex-col items-center">
         <label htmlFor="size-range" className="text-4xl mb-1 text-white">Array Size {arraySize}</label>
