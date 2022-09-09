@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <WindowProvider>
         <div className="flex min-h-screen bg-black">
           <Head>
-            <title>Create Next App</title>
+            <title>Visual Sorter</title>
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <Component {...pageProps} />
