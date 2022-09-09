@@ -4,12 +4,12 @@ export const sleep = (ms) => {
 }
 
 export const finishedAnimation = async (algorithm, seconds, toast) => {
-  toast(`${algorithm} Sort finished in ${seconds} seconds ⏱!`,
+  toast(`Sorted in ${seconds} seconds ⏱!`,
   { 
     position: 'bottom-right',
     draggable: true ,
     hideProgressBar: false,
-    autoClose: 2000
+    autoClose: 2000,
   })
 }
 

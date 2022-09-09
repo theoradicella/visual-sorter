@@ -12,11 +12,11 @@ export const SorterProvider = (props: any) => {
 
   const [sorter, setSorter] = useReducer(sorterReducer, {
     array: [],
-    arraySize: 70,
+    arraySize: 35,
     algorithm: 'Bubble',
     sorting: false,
-    animationSpeed : 40,
-    randomizeArray: (arraySize: number) => {
+    animationSpeed : 30,
+    randomizeArray: (arraySize: number, min = 35, max = 450) => {
       const randomVals = (min: number, max: number) => {
         let randomVal = Math.floor(Math.random() * (max - min + 1) + min)
         return randomVal
@@ -30,7 +30,7 @@ export const SorterProvider = (props: any) => {
       let newArray: any  = []
       
       for (let i = 0; i < arraySize; i++) {
-        newArray.push(randomVals(35, 450))
+        newArray.push(randomVals(min, max))
       }
   
       setSorter({ array: newArray })
